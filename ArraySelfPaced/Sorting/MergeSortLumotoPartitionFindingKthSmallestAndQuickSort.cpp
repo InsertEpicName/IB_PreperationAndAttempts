@@ -67,7 +67,23 @@ void printarr(int arr[],int n){
         cout<<arr[i]<<" ";
     }
 }
+int kthSmallest(int arr[],int n,int k){
+    int l=0;
+    int h=n-1;
+    while(l<h){
+        int pivot=lumotoPartition(arr,l,h);
+        if(pivot==(k-1)){
+            return arr[pivot];
+        }
+        else if(pivot>(k-1)){
+            h=pivot-1;
+        }
+        else{
+            l=pivot+1;
+        }
+    }
 
+}
 void mergesort(int arr[],int l,int h){
     if(l>=h){
         return;
@@ -85,5 +101,8 @@ int main()
     int arr[]={1,3,2,6,4,5,7,2};
     quickSort(arr,0,7);
     printarr(arr,8);
+    cout<<endl;
+    //Use lumotoPartition to find kTh smallest element  (Only works for distinct elems)
+    cout<<kthSmallest(arr,8,4)<<endl;
     return 0;
 }
