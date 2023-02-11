@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-
+//Similarly we can do for Linked List implementation but for it we have to use O(N) complexity to set the rear pointer at the end
 struct MyQueue  {
     int size, cap;
     int *arr;
